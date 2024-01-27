@@ -1,4 +1,5 @@
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar';
+import Provider from '@/components/Provider';
 import {Nunito_Sans} from 'next/font/google'
 import '../globals.css'
 
@@ -15,12 +16,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='dark'>
+    <html lang="en">
       <body className={nunito_sans.className}>
-        <div className="bg-very-light-gray text-very-dark-blue-text dark:bg-very-dark-blue dark:text-white">
+        <Provider>
+        <div className="w-full h-[100%] min-h-[100vh] bg-very-light-gray text-very-dark-blue-text dark:bg-very-dark-blue dark:text-white">
           <Navbar/>
           {children}
         </div>
+        </Provider>
       </body>
     </html>
   )

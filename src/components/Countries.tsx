@@ -20,7 +20,7 @@ const Countries = async () => {
     <section className="p-4 sm:px-6 md:px-8 lg:px-12 grid-flex gap-y-12 justify-items-center">
         {data.map((i:countryType) => {
             return (
-            <Link href={`/${i.name.common}`} key={i.name.common} className="bg-white dark:bg-dark-blue shadow-md w-[250px] cursor-pointer transition-all hover:scale-105">
+            <Link href={`/${i.name.common}`} key={i.name.common} className="bg-white dark:bg-dark-blue shadow-md w-[250px] cursor-pointer transition-all rounded-[4px] overflow-hidden hover:scale-105">
                 <Image 
                 src={i.flags.svg}
                 width={265}
