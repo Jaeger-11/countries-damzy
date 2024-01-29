@@ -35,7 +35,7 @@ export default function SearchFilter() {
                 {showFilter ? 
                 <div className='absolute my-1 bg-white dark:bg-dark-blue w-full py-2 custom-shadow rounded-sm z-20'>
                     {regions.map((region) => {
-                        return <p className='capitalize px-2 cursor-pointer text-sm' onClick={() => selectFilter(region)}>{region}</p>
+                        return <p key={region} className='capitalize px-2 cursor-pointer text-sm' onClick={() => selectFilter(region)}>{region}</p>
                     })}
                 </div> : ''
                 }

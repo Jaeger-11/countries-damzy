@@ -60,7 +60,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
                         {/* <p className="text-sm font-semibold">Top Level Domain: <span className="font-normal text-dark-gray">{country.}</span></p>
                         <p className="text-sm font-semibold">Currencies: <span className="font-normal text-dark-gray">{country.Currencies}</span></p> */}
                         <p className="text-sm font-semibold">Language:
-                            {Object.values(country.languages).map((i:any) => {return <span className="font-normal text-dark-gray"> {i} </span>}
+                            {Object.values(country.languages).map((i:any) => {return <span key={i} className="font-normal text-dark-gray"> {i} </span>}
                         )}</p>
                     </div>
                 </section>
