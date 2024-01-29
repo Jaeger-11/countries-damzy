@@ -40,15 +40,15 @@ const Country = async ({params}: {params : {countryName: string}}) => {
     <div className='mt-8 px-4 sm:px-8 md:px-12'>
         <Back/>
 
-        <article className='grid grid-cols-2'>
+        <article className='grid md:grid-cols-2'>
             <div>
                 <Image 
-                src={data[0].flags.svg} alt={data[0].flags.alt} className='w-[90%] aspect-[555/400]' width={200} height={200}
+                src={data[0].flags.svg} alt={data[0].flags.alt} className='w-full sm:w-[90%] aspect-[555/400]' width={200} height={200}
                 />
             </div>
             <section className=''>
                 <h3 className='text-xl font-bold my-6'>{data[0].name.common}</h3>
-                <section className=' md:grid md:grid-cols-2'>
+                <section className=' md:grid sm:grid-cols-2'>
                     <div className='flex flex-col gap-3'>
                         {/* <p className="text-sm font-semibold">Native name: <span className="font-normal text-dark-gray">{country.name.nativeName[0]}</span></p> */}
                         <p className="text-sm font-semibold">Population: <span className="font-normal text-dark-gray">{Intl.NumberFormat('en-US').format(country.population)}</span></p>
@@ -56,7 +56,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
                         <p className="text-sm font-semibold">Sub Region: <span className="font-normal text-dark-gray">{country.subregion}</span></p>
                         <p className="text-sm font-semibold">Capital: <span className="font-normal text-dark-gray">{country.capital[0]}</span></p>
                     </div>
-                    <div className='flex flex-col gap-3'>
+                    <div className='flex flex-col gap-3 mt-8 md:mt-0'>
                         {/* <p className="text-sm font-semibold">Top Level Domain: <span className="font-normal text-dark-gray">{country.}</span></p>
                         <p className="text-sm font-semibold">Currencies: <span className="font-normal text-dark-gray">{country.Currencies}</span></p> */}
                         <p className="text-sm font-semibold">Language:
