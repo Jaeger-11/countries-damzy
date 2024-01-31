@@ -1,20 +1,14 @@
 'use client';
-import {useState} from 'react'
+import {useState} from 'react';
+import { useGlobalContext } from './Context';
 
-const regions = ['africa', 'america', 'asia', 'europe', 'oceania'];
+const regions = ['africa', 'americas', 'asia', 'europe', 'oceania'];
 export default function SearchFilter() {
+    const {setSearch, setFilter, filter} = useGlobalContext()
     const [showFilter, setShowFilter] = useState(false);
-    const [selectedFilter, setSelectedFilter] = useState<string>('');
-    const [search, setSearch] = useState<string>('')
-    let filter:string = ''
     const selectFilter = (filt:string) => {
-        filter = filt
-        setSelectedFilter(filter);
         setShowFilter(false);
-        searchAndFilter();
-    }
-    const searchAndFilter = () => {
-        console.log(search, filter);
+        setFilter(filt)
     }
   return (
     <section className='my-8 px-4 sm:px-8 md:px-12 md:flex md:justify-between md:items-center'>
@@ -27,7 +21,7 @@ export default function SearchFilter() {
             </div>
             <div className='relative w-1/2 md:w-max'>
                 <div onClick={() => setShowFilter(!showFilter)} className=' flex justify-between gap-6 items-center cursor-pointer p-2 bg-white dark:bg-dark-blue custom-shadow rounded-sm text-sm md:p-3 '>
-                    <div className='min-w-[100px] capitalize' >{selectedFilter ? selectedFilter : 'Filter by region'}</div>
+                    <div className='min-w-[100px] capitalize' >{filter ? filter : 'Filter by region'}</div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
                     <path d="M7 1L4 4L1 1" stroke="#121214" className='dark:stroke-white' stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -41,5 +35,5 @@ export default function SearchFilter() {
                 }
             </div>
         </section>
-  )
+  ) 
 }

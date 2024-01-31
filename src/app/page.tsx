@@ -1,11 +1,11 @@
 // components
 import SearchFilter from "@/components/SearchFilter";
-import Countries from "@/components/Countries";
+import CountriesCont from "@/components/CountriesCont";
 
 const Home = () => {
     return <div>
         <SearchFilter/>
-        <Countries/>
+        <CountriesCont/>
     </div>
 }
 
