@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 const fetchCountry = async (params: string) => {
-    const res = await fetch(`https://restcountries.com/v3.1/name/${params}?fields=name,capital,population,region,flags,languages,subregion,borders,currencies`)
+    const res = await fetch(`https://restcountries.com/v3.1/name/${params}?fields=name,capital,population,region,flags,languages,subregion,borders,currencies,tld`)
     if(!res.ok){
         notFound()
     }
@@ -29,7 +29,8 @@ type countryType = {
     languages: {},
     subregion: string,
     borders: string[],
-    currencies: {}
+    currencies: {},
+    tld: string[]
 }
 
 const Country = async ({params}: {params : {countryName: string}}) => {
@@ -38,6 +39,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
     type currencyType = {
         name: string
     }
+    console.log(country.borders)
     const b = Object.values(country.name.nativeName)[0];
     const native:{common:string} = b as {common:string}; 
     const a = Object.values(country.currencies)[0];
@@ -64,7 +66,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
                         <p className="text-sm font-semibold">Capital: <span className="font-normal text-dark-gray">{country.capital[0]}</span></p>
                     </div>
                     <div className='flex flex-col gap-3 mt-8 md:mt-0'>
-                        {/* <p className="text-sm font-semibold">Top Level Domain: <span className="font-normal text-dark-gray">{country.}</span></p> */}
+                        <p className="text-sm font-semibold">Top Level Domain: <span className="font-normal text-dark-gray">{country.tld}</span></p>
                         <p className="text-sm font-semibold">Currencies: <span className="font-normal text-dark-gray capitalize">{currency.name}</span></p>
                         <p className="text-sm font-semibold">Language:
                             {Object.values(country.languages).map((i:any) => {return <span key={i} className="font-normal text-dark-gray"> {i} </span>}
