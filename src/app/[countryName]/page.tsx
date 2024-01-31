@@ -59,7 +59,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
                 <h3 className='text-xl font-bold my-6'>{data[0].name.common}</h3>
                 <section className=' md:grid sm:grid-cols-2'>
                     <div className='flex flex-col gap-3'>
-                        <p className="text-sm font-semibold">Native name: <span className="font-normal text-dark-gray">{native.common}</span></p>
+                        <p className="text-sm font-semibold">Native name: <span className="font-normal text-dark-gray">{native?.common}</span></p>
                         <p className="text-sm font-semibold">Population: <span className="font-normal text-dark-gray">{Intl.NumberFormat('en-US').format(country.population)}</span></p>
                         <p className="text-sm font-semibold">Region: <span className="font-normal text-dark-gray">{country.region}</span></p>
                         <p className="text-sm font-semibold">Sub Region: <span className="font-normal text-dark-gray">{country.subregion}</span></p>
@@ -67,7 +67,7 @@ const Country = async ({params}: {params : {countryName: string}}) => {
                     </div>
                     <div className='flex flex-col gap-3 mt-8 md:mt-0'>
                         <p className="text-sm font-semibold">Top Level Domain: <span className="font-normal text-dark-gray">{country.tld}</span></p>
-                        <p className="text-sm font-semibold">Currencies: <span className="font-normal text-dark-gray capitalize">{currency.name}</span></p>
+                        <p className="text-sm font-semibold">Currencies: <span className="font-normal text-dark-gray capitalize">{currency?.name}</span></p>
                         <p className="text-sm font-semibold">Language:
                             {Object.values(country.languages).map((i:any) => {return <span key={i} className="font-normal text-dark-gray"> {i} </span>}
                         )}</p>

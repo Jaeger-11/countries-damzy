@@ -1,26 +1,23 @@
 "use client";
 
-import  { useContext, createContext, useState} from 'react';
+import  { useContext, createContext, useState, Dispatch, SetStateAction} from 'react';
 type defaultV = {
     filter: string,
     search: string,
-    setSearch: any,
-    setFilter: any
+    setSearch: Dispatch<SetStateAction<string>>,
+    setFilter: Dispatch<SetStateAction<string>>
 }
 const defaultValue:defaultV = {
     filter: "",
     search: "",
-    setFilter: "",
-    setSearch: ""
+    setFilter: (): string => '',
+    setSearch: (): string => ''
 }
 const AppContext = createContext(defaultValue);
 
 const AppProvider = ({children}:{children:React.ReactNode}) => {
         const [filter, setFilter] = useState<string>("");
         const [search, setSearch] = useState<string>(""); 
-        // const selectFilter = (filt) => {
-        //     setFilter(filt)
-        // }
         return <AppContext.Provider
             value={{
                 filter,
